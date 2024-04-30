@@ -1,10 +1,10 @@
 <script setup>
-withDefaults(
-  defineProps({
-    tag: String,
-  }),
-  { tag: "button" }
-);
+defineProps({
+  tag: {
+    type: String,
+    value: "button",
+  },
+});
 </script>
 
 <template>
@@ -17,9 +17,11 @@ withDefaults(
 
 <style lang='scss'>
 .base-button {
+  display: block;
   width: fit-content;
   padding: 12px 10px;
   border-radius: 8px;
+  cursor: pointer;
 
   &__text {
     @apply text-xl;

@@ -26,10 +26,13 @@ body {
 }
 
 .block-container {
-	width: 90%;
+	width: 95%;
 	margin: auto;
 	
 	@media (min-width: 768px) {
+		width: 90%;
+	}
+	@media (min-width: 1024px) {
 		width: 80%;
 	}
 }
@@ -49,5 +52,19 @@ h2 {
 		width: 50%;
 		height: 3px;
 		margin-top: 8px;
+	}
+}
+h3 {
+	display: block;
+	width: fit-content;
+	@apply text-2xl;
+	&::after {
+		@apply bg-orange-500;
+		content: '';
+		position: relative;
+		display: block;
+		width: 50%;
+		height: 3px;
+		margin-top: 4px;
 	}
 }
