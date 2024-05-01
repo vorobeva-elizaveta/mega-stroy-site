@@ -12,10 +12,21 @@ const toggleMenu = () => {
       <div class="the-header__menu-button" @click="toggleMenu">Меню</div>
       <div class="the-header__navigation" :class="{ open: isMenuActive }">
         <ul class="the-header__menu">
-          <li class="menu__item">Для юридических лиц</li>
-          <li class="menu__item">Услуги</li>
-          <li class="menu__item">Наши работы</li>
-          <li class="menu__item">Контакты</li>
+          <li class="menu__item">
+            <a href="/">Главная</a>
+          </li>
+          <li class="menu__item">
+            <a href="/for-legal-entities">Для юридических лиц</a>
+          </li>
+          <li class="menu__item">
+            <a href="/#services">Услуги</a>
+          </li>
+          <li class="menu__item">
+            <a href="/#portfolio">Наши работы</a>
+          </li>
+          <li class="menu__item">
+            <a href="/#contacts">Контакты</a>
+          </li>
         </ul>
         <div class="the-header__contact-number">
           <p>+7 (912) 376 51 60</p>

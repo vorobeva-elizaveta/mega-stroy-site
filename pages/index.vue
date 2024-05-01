@@ -1,8 +1,9 @@
 <script setup>
 import BaseButton from "~/shared/ui-kit/BaseButton.vue";
-import PortfolioComponent from "~/widgets/PortfolioComponent.vue";
+import PortfolioComponent from "~/widgets/portfolio/PortfolioComponent.vue";
 import ServiceCard from "~/features/service/ServiceCard.vue";
 import AdvantageCard from "~/features/advantage/AdvantageCard.vue";
+import Form from "~/features/Form.vue";
 
 const services = [
   {
@@ -47,6 +48,8 @@ const advantages = [
     icon: "calendar-check",
   },
 ];
+
+const formData = ref();
 </script>
 
 <template>
@@ -57,7 +60,9 @@ const advantages = [
           <h1 class="first-block__title text-white">
             Строительство и ремонт вашего дома/квартиры/офиса
           </h1>
-          <BaseButton tag="a" class="primary mt-4">Оформить заявку</BaseButton>
+          <BaseButton tag="a" href="#form" class="primary mt-4">
+            Оформить заявку
+          </BaseButton>
         </div>
       </div>
       <div class="main-page__first-block-background">
@@ -92,7 +97,7 @@ const advantages = [
         </div>
       </div>
     </div>
-    <div class="main-page__services bg-gray-50">
+    <div class="main-page__services bg-gray-50" id="services">
       <div class="block-container">
         <h2>Услуги</h2>
         <div class="services__content lg:flex justify-between block gap-6 mt-6">
@@ -123,17 +128,11 @@ const advantages = [
         </div>
       </div>
     </div>
-    <div class="main-page__portfolio">
-      <div class="block-container py-[50px]">
-        <h2>Наши работы</h2>
-        <PortfolioComponent></PortfolioComponent>
-      </div>
-    </div>
     <div class="main-page__advantages">
       <div class="block-container py-[50px]">
         <h2>Преимущества работы с нами</h2>
         <div
-          class="advantages__content pt-6 flex lg:flex-row flex-col justify-between gap-4"
+          class="advantages__content pt-8 flex lg:flex-row flex-col justify-between gap-4"
         >
           <AdvantageCard
             v-for="(advantage, index) in advantages"
@@ -142,6 +141,18 @@ const advantages = [
             :icon="advantage?.icon"
           />
         </div>
+      </div>
+    </div>
+    <div class="main-page__portfolio bg-gray-50" id="portfolio">
+      <div class="block-container py-[50px]">
+        <h2>Наши работы</h2>
+        <PortfolioComponent class="mt-5"></PortfolioComponent>
+      </div>
+    </div>
+    <div class="main-page__form" id="form">
+      <div class="block-container py-[50px] flex items-center flex-col">
+        <h2 class="mb-5">Форма заявки</h2>
+        <Form v-model="formData" class="lg:w-1/2"> </Form>
       </div>
     </div>
   </div>
