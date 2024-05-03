@@ -38,7 +38,7 @@ defineProps({
   }
 
   &.secondary {
-    @apply bg-blue-700;
+    @apply bg-blue-700 hover:bg-blue-400 active:bg-blue-600;
 
     .base-button__text {
       @apply text-white;

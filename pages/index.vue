@@ -152,7 +152,7 @@ const formData = ref();
     <div class="main-page__form" id="form">
       <div class="block-container py-[50px] flex items-center flex-col">
         <h2 class="mb-5">Форма заявки</h2>
-        <Form v-model="formData" class="lg:w-1/2"> </Form>
+        <Form v-model="formData" class="md:w-1/2 w-full"> </Form>
       </div>
     </div>
   </div>

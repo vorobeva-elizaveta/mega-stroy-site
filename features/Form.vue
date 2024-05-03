@@ -1,74 +1,108 @@
 <script setup>
 import BaseButton from "~/shared/ui-kit/BaseButton.vue";
 import { useVuelidate } from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, requiredUnless, helpers } from "@vuelidate/validators";
 
-defineProps({
+const { modelValue } = defineProps({
   modelValue: Object,
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
 const formData = reactive({
-  name: null,
-  email: null,
+  name: "",
+  phone: "",
   isLegalEntity: false,
-  description: null,
+  description: "",
   service: "building",
+  privacyPolicy: false,
 });
 
-const validationRules = {
-  name: { required },
-  email: { required, email },
-};
+const validationRules = computed(() => {
+  return {
+    name: {
+      required: helpers.withMessage(
+        "Это поле обязательно для заполнения",
+        required
+      ),
+    },
+    phone: {
+      required: helpers.withMessage(
+        "Это поле обязательно для заполнения",
+        required
+      ),
+    },
+    privacyPolicy: {
+      required: helpers.withMessage(
+        "Это поле обязательно для заполнения",
+        function () {
+          return formData.privacyPolicy === true;
+        }
+      ),
+    },
+  };
+});
 
 const v$ = useVuelidate(validationRules, formData);
 
-const services = ref([
-  { title: "Строительство", id: 1 },
-  { title: "Ремонт", id: 2 },
-]);
-
 const isDataSended = ref(false);
 
+const onLoad = () => {
+  if (modelValue) formData.isLegalEntity = modelValue?.isLegalEntity;
+  if (eval(localStorage.requestSended) == true) isDataSended.value = true;
+};
+
 const sendFormData = async () => {
+  if (localStorage.requestSended == "true") return;
   if (v$.value.$invalid) return v$.value.$touch();
-  let result = await useFetch("/api/sendBuildingRequest");
-  console.log(result);
+  let result = await useFetch("/api/sendBuildingRequest", {
+    method: "POST",
+    body: formData,
+  });
+  localStorage.setItem("requestSended", true);
+  isDataSended.value = true;
 };
 
 watch(formData, () => {
   emit("update:modelValue", formData);
 });
+
+onMounted(() => {
+  onLoad();
+});
 </script>
 
 <template>
   <div class="form" v-if="!isDataSended">
-    <p class="text-red-700" v-if="v$.name?.$invalid && v$.name?.$dirty">
-      Заполните поле
+    <p
+      class="text-red-700"
+      v-if="v$.name?.$invalid && v$.name.required.$invalid && v$.name?.$dirty"
+    >
+      {{ v$.name.required.$message || "Заполните поле" }}
     </p>
     <InputText
       class="block mb-4 w-full"
       v-model="formData.name"
       placeholder="Введите имя"
       required="true"
-      :invalid="v$.name?.$invalid && v$.name?.$dirty"
+      :invalid="v$?.name?.$invalid && v$?.name?.$dirty"
     />
 
     <p
       class="text-red-700"
-      v-if="v$.email?.$invalid && v$.email.email.$invalid && v$.email?.$dirty"
+      v-if="
+        v$.phone?.$invalid && v$.phone.required.$invalid && v$.phone?.$dirty
+      "
     >
-      Почта заполнена неверно
+      {{ v$.phone.required.$message || "Заполните поле" }}
     </p>
-    <p class="text-red-700" v-else-if="v$.email?.$invalid && v$.email?.$dirty">
-      Заполните поле
-    </p>
-    <InputText
+    <InputMask
+      mask="+7 (999) 999-99-99"
       class="block mb-4 w-full"
-      placeholder="Введите почту"
-      v-model="formData.email"
-      :invalid="v$.email?.$invalid && v$.email?.$dirty"
+      v-model="formData.phone"
+      placeholder="+7 (___) ___-__-__"
+      required="true"
+      :invalid="v$.phone?.$invalid && v$.phone?.$dirty"
     />
 
     <div class="flex items-center gap-6 mb-4">
@@ -103,7 +137,6 @@ watch(formData, () => {
       <div class="flex items-center">
         <RadioButton
           value="building"
-          name="Строительство"
           v-model="formData.service"
           input-id="building"
         />
@@ -116,7 +149,6 @@ watch(formData, () => {
         <RadioButton
           input-id="repairing"
           value="repairing"
-          name="Ремонт"
           v-model="formData.service"
         />
         <label for="repairing" class="ml-2">
@@ -128,7 +160,6 @@ watch(formData, () => {
         <RadioButton
           input-id="dontKnow"
           value="dontKnow"
-          name="Пока не знаю"
           v-model="formData.service"
         />
         <label for="dontKnow" class="ml-2">
@@ -140,17 +171,48 @@ watch(formData, () => {
     <InputText
       class="block mb-4 w-full"
       v-model="formData.description"
-      placeholder="Впишите свои идеи"
+      placeholder="Напишите свои пожелания"
       required="true"
     />
+    <p
+      class="text-red-500"
+      v-if="
+        v$.privacyPolicy.$invalid &&
+        v$.privacyPolicy.required.$invalid &&
+        v$.privacyPolicy.$dirty
+      "
+    >
+      {{ v$.privacyPolicy.required.$message }}
+    </p>
+    <div class="flex items-center mb-4">
+      <Checkbox
+        inputId="privacyPolicy"
+        v-model="formData.privacyPolicy"
+        :binary="true"
+        :invalid="v$.privacyPolicy.$invalid && v$.privacyPolicy.$dirty"
+      />
+      <label for="privacyPolicy" class="ml-2">
+        Я согласен с
+        <a
+          class="text-orange-500 underline"
+          target="_blank"
+          href="/Politika_konfidencialnosti.pdf"
+        >
+          политикой конфиденциальности
+        </a>
+      </label>
+    </div>
 
     <slot name="sendButton">
-      <BaseButton @click="sendFormData" tag="button" class="secondary">
+      <BaseButton @click="sendFormData" tag="button" class="secondary w-full">
         Отправить
       </BaseButton>
     </slot>
   </div>
-  <div v-else></div>
+  <div v-else>
+    <p class="text-center text-2xl text-blue-500">Заявка отправлена!</p>
+    <p class="text-center text-base my-2">Ожидайте звонка менеджера</p>
+  </div>
 </template>
 
 <style lang='scss'>

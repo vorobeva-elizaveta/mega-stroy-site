@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   fontawesome: {
     icons: {
-      solid: ['user', 'user-tie', 'paint-roller', 'user-group', 'calendar-check'],
+      solid: ['user', 'user-tie', 'paint-roller', 'user-group', 'calendar-check', 'flask', 'trowel', 'building-shield'],
     }
   },
   primevue:{
