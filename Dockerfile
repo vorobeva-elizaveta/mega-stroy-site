@@ -2,6 +2,8 @@ FROM node:21-alpine
 
 WORKDIR /.
 
+ENV NODE_OPTIONS=--max-old-space-size=4096
+
 COPY package.json ./
 
 RUN yarn
