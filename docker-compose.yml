@@ -13,3 +13,4 @@ services:
     environment:
       - EMAIL_LOGIN=vliza162@yandex.ru
       - EMAIL_PASSWORD=Malishka2004_
+      - NODE_OPTIONS=--max-old-space-size=4096
