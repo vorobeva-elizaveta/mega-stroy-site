@@ -3,6 +3,7 @@ import FirstPageBlock from "../widgets/FirstPageBlock.vue";
 import Form from "~/features/Form.vue";
 import BaseButton from "~/shared/ui-kit/BaseButton.vue";
 import AdvantageCard from "~/features/advantage/AdvantageCard.vue";
+import ContactsBlock from "~/widgets/ContactsBlock.vue";
 
 useHead({
   title: "Для юридических лиц",
@@ -97,6 +98,11 @@ const formData = ref({
       <div class="block-container py-[50px] flex items-center flex-col">
         <h2 class="mb-5">Форма заявки</h2>
         <Form v-model="formData" class="md:w-1/2 w-full"> </Form>
+      </div>
+    </div>
+    <div class="for-legal-entities-page__contacts">
+      <div class="block-container py-[50px]">
+        <ContactsBlock />
       </div>
     </div>
   </div>
