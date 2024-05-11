@@ -1,0 +1,15 @@
+services:
+  nuxt:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: nuxt-app
+    restart: always
+    working_dir: /app
+    ports: 
+      - '3000:3000'
+    volumes:
+      - .:/app
+    environment:
+      - EMAIL_LOGIN=vliza162@yandex.ru
+      - EMAIL_PASSWORD=Malishka2004_

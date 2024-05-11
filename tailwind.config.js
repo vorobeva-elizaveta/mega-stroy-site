@@ -8,6 +8,8 @@ export default {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./features/**/*.{js,ts,vue}",
+    "./widgets/**/*.{js,ts,vue}",
+    "./shared/**/*.{js,ts,vue}",
     "./app.vue",
     "./error.vue"
   ],

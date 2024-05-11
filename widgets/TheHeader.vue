@@ -13,19 +13,21 @@ const toggleMenu = () => {
       <div class="the-header__navigation" :class="{ open: isMenuActive }">
         <ul class="the-header__menu">
           <li class="menu__item">
-            <a href="/">Главная</a>
+            <RouterLink to="/"> Главная </RouterLink>
           </li>
           <li class="menu__item">
-            <a href="/for-legal-entities">Для юридических лиц</a>
+            <RouterLink to="/for-legal-entities">
+              Для юридических лиц
+            </RouterLink>
           </li>
           <li class="menu__item">
-            <a href="/#services">Услуги</a>
+            <RouterLink to="/#services">Услуги</RouterLink>
           </li>
           <li class="menu__item">
-            <a href="/#portfolio">Наши работы</a>
+            <RouterLink to="/#portfolio">Наши работы</RouterLink>
           </li>
           <li class="menu__item">
-            <a href="/#contacts">Контакты</a>
+            <RouterLink to="/#contacts">Контакты</RouterLink>
           </li>
         </ul>
         <div class="the-header__contact-number">

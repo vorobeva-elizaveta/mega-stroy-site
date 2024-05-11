@@ -75,7 +75,7 @@ onMounted(() => {
 <template>
   <div class="form" v-if="!isDataSended">
     <p
-      class="text-red-700"
+      class="text-red-500"
       v-if="v$.name?.$invalid && v$.name.required.$invalid && v$.name?.$dirty"
     >
       {{ v$.name.required.$message || "Заполните поле" }}
@@ -89,7 +89,7 @@ onMounted(() => {
     />
 
     <p
-      class="text-red-700"
+      class="text-red-500"
       v-if="
         v$.phone?.$invalid && v$.phone.required.$invalid && v$.phone?.$dirty
       "

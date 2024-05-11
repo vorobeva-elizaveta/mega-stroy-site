@@ -4,6 +4,18 @@ import PortfolioComponent from "~/widgets/portfolio/PortfolioComponent.vue";
 import ServiceCard from "~/features/service/ServiceCard.vue";
 import AdvantageCard from "~/features/advantage/AdvantageCard.vue";
 import Form from "~/features/Form.vue";
+import ContactsBlock from "~/widgets/ContactsBlock.vue";
+
+useHead({
+  title: "Главная страница",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Добро пожаловать на сайт строительной компании МегаСтрой. Мы специализируемся на качественном строительстве жилых и коммерческих объектов. Наша команда опытных специалистов предлагает полный спектр услуг: от проектирования и строительства до ремонта и обслуживания. Мы стремимся к высочайшему уровню качества, надежности и инноваций в каждом проекте. Свяжитесь с нами сегодня, чтобы превратить вашу мечту в реальность.",
+    },
+  ],
+});
 
 const services = [
   {
@@ -153,6 +165,11 @@ const formData = ref();
       <div class="block-container py-[50px] flex items-center flex-col">
         <h2 class="mb-5">Форма заявки</h2>
         <Form v-model="formData" class="md:w-1/2 w-full"> </Form>
+      </div>
+    </div>
+    <div class="main-page__" id="contacts">
+      <div class="block-container py-[50px]">
+        <ContactsBlock />
       </div>
     </div>
   </div>

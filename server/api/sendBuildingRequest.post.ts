@@ -13,7 +13,9 @@ export default defineEventHandler(async (event) => {
       }
     });
   
-    const mailText = `Имя: ${body?.name} \nНомер телефона: ${body?.phone} \nТип пользователя: ${!body.isLegalEntity ? 'Частное лицо' : 'Юридическое лицо'} \nТип услуги: ${body.service=='building' ? 'Стройка нового здания' : body.service == 'repairing' ? 'Ремонт' : 'Пока не знает'}`
+    const mailText = `Имя: ${body?.name} \nНомер телефона: ${body?.phone} 
+    \nТип пользователя: ${!body.isLegalEntity ? 'Частное лицо' : 'Юридическое лицо'} 
+    \nТип услуги: ${body.service=='building' ? 'Стройка нового здания' : body.service == 'repairing' ? 'Ремонт' : 'Пока не знает'}`
   
     // Настройка письма
     let mailOptions = {
