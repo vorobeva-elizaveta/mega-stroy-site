@@ -14,6 +14,12 @@ import BaseButton from "~/shared/ui-kit/BaseButton.vue";
       />
       <div class="the-footer__content">
         <div class="flex flex-col gap-4 items-center md:items-start">
+          <p>ООО "Крепость-плюс"</p>
+          <p>Адрес: город Киров, переулок Энгельса, дом 2, этаж 4, офис 14</p>
+          <p>ИНН: 4345507350</p>
+          <p>ОГРН: 1204300011926</p>
+        </div>
+        <div class="flex flex-col gap-4 items-center md:items-start">
           <RouterLink to="/" class="hover:underline"> Главная </RouterLink>
           <RouterLink to="/#services" class="hover:underline">
             Услуги

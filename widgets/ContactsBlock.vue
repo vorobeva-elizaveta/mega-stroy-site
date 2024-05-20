@@ -6,7 +6,8 @@
     <h2 class="mb-5">Контакты</h2>
     <ul class="contact-list">
       <li class="mb-5">
-        <strong>Адрес:</strong> ул. Примерная, 123, г. Примерный
+        <strong>Адрес:</strong>город Киров, переулок Энгельса, дом 2, этаж 4,
+        офис 14
       </li>
       <li class="mb-5"><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</li>
       <li class="mb-5"><strong>Email:</strong> info@example.com</li>
