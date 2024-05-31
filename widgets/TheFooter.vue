@@ -30,7 +30,7 @@ import BaseButton from "~/shared/ui-kit/BaseButton.vue";
         </div>
         <div class="flex flex-col gap-4 items-center md:items-start">
           <RouterLink
-            to="/Politika_konfidencialnosti.pdf"
+            to="/privacyPolicy.pdf"
             target="_blank"
             class="hover:underline"
           >
@@ -41,7 +41,7 @@ import BaseButton from "~/shared/ui-kit/BaseButton.vue";
           </RouterLink>
         </div>
         <div class="flex flex-col items-center lg:items-start">
-          <p>+7 912 376 51 60</p>
+          <p><a class="underline hover:text-orange-500" href="tel:79005217771">+7 (900) 521 77 71</a></p>
           <BaseButton tag="a" href="/#form" class="primary mt-4">
             Оформить заявку
           </BaseButton>

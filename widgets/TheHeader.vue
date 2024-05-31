@@ -3,6 +3,11 @@ const isMenuActive = ref(false);
 const toggleMenu = () => {
   isMenuActive.value = !isMenuActive.value;
 };
+const route = useRoute();
+
+const onClickLink = () => {
+  isMenuActive.value = false;
+};
 </script>
 
 <template>
@@ -12,26 +17,26 @@ const toggleMenu = () => {
       <div class="the-header__menu-button" @click="toggleMenu">Меню</div>
       <div class="the-header__navigation" :class="{ open: isMenuActive }">
         <ul class="the-header__menu">
-          <li class="menu__item">
+          <li class="menu__item" @click="onClickLink">
             <RouterLink to="/"> Главная </RouterLink>
           </li>
-          <li class="menu__item">
+          <li class="menu__item" @click="onClickLink">
             <RouterLink to="/for-legal-entities">
               Для юридических лиц
             </RouterLink>
           </li>
-          <li class="menu__item">
+          <li class="menu__item" @click="onClickLink">
             <RouterLink to="/#services">Услуги</RouterLink>
           </li>
-          <li class="menu__item">
+          <li class="menu__item" @click="onClickLink">
             <RouterLink to="/#portfolio">Наши работы</RouterLink>
           </li>
-          <li class="menu__item">
+          <li class="menu__item" @click="onClickLink">
             <RouterLink to="/#contacts">Контакты</RouterLink>
           </li>
         </ul>
         <div class="the-header__contact-number">
-          <p>+7 (912) 376 51 60</p>
+          <p><a class="underline hover:text-orange-500" href="tel:79005217771">+7 (900) 521 77 71</a></p>
         </div>
       </div>
     </div>

@@ -6,11 +6,11 @@
     <h2 class="mb-5">Контакты</h2>
     <ul class="contact-list">
       <li class="mb-5">
-        <strong>Адрес:</strong>город Киров, переулок Энгельса, дом 2, этаж 4,
+        <strong>Адрес: </strong>город Киров, переулок Энгельса, дом 2, этаж 4,
         офис 14
       </li>
-      <li class="mb-5"><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</li>
-      <li class="mb-5"><strong>Email:</strong> info@example.com</li>
+      <li class="mb-5"><strong>Телефон:</strong> <a class="underline hover:text-orange-500" href="tel:79005217771">+7 (900) 521 77 71</a></li>
+      <!-- <li class="mb-5"><strong>Email:</strong> info@example.com</li> -->
     </ul>
   </div>
 </template>

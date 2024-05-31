@@ -196,7 +196,7 @@ onMounted(() => {
         <a
           class="text-orange-500 underline"
           target="_blank"
-          href="/Politika_konfidencialnosti.pdf"
+          href="/privacyPolicy.pdf"
         >
           политикой конфиденциальности
         </a>
