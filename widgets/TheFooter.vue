@@ -18,6 +18,7 @@ import BaseButton from "~/shared/ui-kit/BaseButton.vue";
           <p>Адрес: город Киров, переулок Энгельса, дом 2, этаж 4, офис 14</p>
           <p>ИНН: 4345507350</p>
           <p>ОГРН: 1204300011926</p>
+          <p>Электронная почта: <a href="mailto:kos2189@mail.ru">kos2189@mail.ru</a></p>
         </div>
         <div class="flex flex-col gap-4 items-center md:items-start">
           <RouterLink to="/" class="hover:underline"> Главная </RouterLink>

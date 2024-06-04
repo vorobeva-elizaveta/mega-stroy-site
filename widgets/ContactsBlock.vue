@@ -10,7 +10,7 @@
         офис 14
       </li>
       <li class="mb-5"><strong>Телефон:</strong> <a class="underline hover:text-orange-500" href="tel:79005217771">+7 (900) 521 77 71</a></li>
-      <!-- <li class="mb-5"><strong>Email:</strong> info@example.com</li> -->
+      <li class="mb-5"><strong>Электронная почта:</strong> <a href="mailto:kos2189@mail.ru">kos2189@mail.ru</a></li>
     </ul>
   </div>
 </template>
