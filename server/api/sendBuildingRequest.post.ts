@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
   
     // Настройка письма
     let mailOptions = {
-        from: 'vliza162@yandex.com', 
+        from: process.env.EMAIL_LOGIN, 
         to: 'vliza162@gmail.com',
         subject: 'Новая заявка с сайта', // Тема письма
         text: mailText // Текст письма
