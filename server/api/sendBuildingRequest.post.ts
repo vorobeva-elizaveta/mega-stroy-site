@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer'
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
+    if(!body) throw new Error('Body is null')
     console.log(process.env.EMAIL_LOGIN);
     console.log(process.env.EMAIL_PASSWORD);
     
@@ -17,9 +18,9 @@ export default defineEventHandler(async (event) => {
     });
   
     const mailText = `Имя: ${body?.name} \nНомер телефона: ${body?.phone} 
-    \nТип пользователя: ${!body.isLegalEntity ? 'Частное лицо' : 'Юридическое лицо'} 
-    \nТип услуги: ${body.service=='building' ? 'Стройка нового здания' : body.service == 'repairing' ? 'Ремонт' : 'Пока не знает'}
-    \nКомментарий: ${body.description || 'Комментарий не указан' }`
+    \nТип пользователя: ${!body?.isLegalEntity ? 'Частное лицо' : 'Юридическое лицо'} 
+    \nТип услуги: ${body?.service=='building' ? 'Стройка нового здания' : body?.service == 'repairing' ? 'Ремонт' : 'Пока не знает'}
+    \nКомментарий: ${body?.description || 'Комментарий не указан' }`
   
     // Настройка письма
     let mailOptions = {
