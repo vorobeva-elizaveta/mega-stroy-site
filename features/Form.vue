@@ -49,7 +49,7 @@ const isDataSended = ref(false);
 
 const onLoad = () => {
   if (modelValue) formData.isLegalEntity = modelValue?.isLegalEntity;
-  if (eval(localStorage.requestSended) == true) isDataSended.value = true;
+  // if (eval(localStorage.requestSended) == true) isDataSended.value = true;
 };
 
 const sendFormData = async () => {
@@ -59,7 +59,7 @@ const sendFormData = async () => {
     method: "POST",
     body: formData,
   });
-  localStorage.setItem("requestSended", true);
+  // localStorage.setItem("requestSended", true);
   isDataSended.value = true;
 };
 
