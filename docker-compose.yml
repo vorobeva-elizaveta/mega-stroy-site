@@ -5,12 +5,12 @@ services:
       dockerfile: Dockerfile
     container_name: nuxt-app
     restart: always
-    working_dir: /app
+    # working_dir: /app
     ports: 
       - '3000:3000'
     volumes:
       - .:/app
     environment:
-      - EMAIL_LOGIN=vliza162@yandex.ru
-      - EMAIL_PASSWORD=Malishka2004_
-      - NODE_OPTIONS=--max-old-space-size=4096
+      - EMAIL_LOGIN=zakazy@mega-stroy-kirov.ru
+      - EMAIL_PASSWORD=YjbBL*5Llkpl
+      - NODE_OPTIONS=--max-old-space-size=8192
