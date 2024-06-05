@@ -1,6 +1,6 @@
 import global from './global.js';
 import checkbox from './checkbox';
-import dropdown from './dropdown';
+import dropdown from './dropdown/index.js';
 import inputmask from './inputmask';
 import inputnumber from './inputnumber';
 import inputtext from './inputtext';
