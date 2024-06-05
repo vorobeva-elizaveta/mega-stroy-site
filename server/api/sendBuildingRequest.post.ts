@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     };
   
     // Отправляем письмо
-    await transporter.sendMail(mailOptions);
+    await transporter?.sendMail(mailOptions);
   
     return {
       status: 'ok'

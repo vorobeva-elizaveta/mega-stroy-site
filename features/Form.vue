@@ -53,7 +53,7 @@ const onLoad = () => {
 };
 
 const sendFormData = async () => {
-  if (localStorage.requestSended == "true") return;
+  // if (localStorage.requestSended == "true") return;
   if (v$.value.$invalid) return v$.value.$touch();
   let result = await useFetch("/api/sendBuildingRequest", {
     method: "POST",
