@@ -14,7 +14,5 @@ COPY . .
 
 RUN yarn build
 
-RUN ls ./.output/server
-
 CMD ["node", ".output/server/index.mjs"]
 # CMD ["ls"]

@@ -10,7 +10,3 @@ services:
       - '3000:3000'
     volumes:
       - .:/app
-    environment:
-      - EMAIL_LOGIN=zakazy@mega-stroy-kirov.ru
-      - EMAIL_PASSWORD=YjbBL*5Llkpl
-      - NODE_OPTIONS=--max-old-space-size=8192
